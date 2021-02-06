@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class pl : MonoBehaviour
 {
+    public Transform Pointer;
     public LayerMask toClickOn;
     public AudioSource clicked;
     private UnityEngine.AI.NavMeshAgent myAgent;
@@ -22,6 +24,7 @@ public class pl : MonoBehaviour
             
             if (Physics.Raycast(myRay, out hit, 20, toClickOn))
             {
+                Pointer.position = hit.point;
                 myAgent.SetDestination(hit.point);
                 clicked.Play();
                 Debug.Log("Come Here!");
