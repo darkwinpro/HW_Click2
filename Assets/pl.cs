@@ -20,13 +20,12 @@ public class pl : MonoBehaviour
             Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(myRay, out hit, 100, toClickOn))
+            if (Physics.Raycast(myRay, out hit, 20, toClickOn))
             {
                 myAgent.SetDestination(hit.point);
-                
+                clicked.Play();
+                Debug.Log("Come Here!");
             }
-            Debug.Log("Come Here!");
-            clicked.Play();
         }
     }
 }
