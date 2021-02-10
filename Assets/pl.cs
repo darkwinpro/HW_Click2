@@ -22,7 +22,7 @@ public class pl : MonoBehaviour
             Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(myRay, out hit, 20, toClickOn))
+            if (Physics.Raycast(myRay, out hit, 1000, toClickOn))
             {
                 Pointer.position = hit.point;
                 myAgent.SetDestination(hit.point);
